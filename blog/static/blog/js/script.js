@@ -111,6 +111,7 @@ if ( typeof define === 'function' && define.amd ) {
 })( window );
 
 (function() {
+
     var triggerBttn = document.getElementById( 'trigger-overlay' ),
         overlay = document.querySelector( 'div.overlay' ),
         closeBttn = overlay.querySelector( 'button.overlay-close' );
@@ -149,4 +150,7 @@ if ( typeof define === 'function' && define.amd ) {
 
     triggerBttn.addEventListener( 'click', toggleOverlay );
     closeBttn.addEventListener( 'click', toggleOverlay );
+    var headerElement = document.getElementById('main-header');
+    var headroom  = new Headroom(headerElement);
+    headroom.init();
 })();

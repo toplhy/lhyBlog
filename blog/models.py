@@ -55,3 +55,7 @@ class Article(models.Model):
 
     def get_detail_url(self):
         return reverse('blog:detail', kwargs={'pk': self.pk})
+
+    def increase_count(self):
+        self.count += 1
+        self.save(update_fields=['count'])

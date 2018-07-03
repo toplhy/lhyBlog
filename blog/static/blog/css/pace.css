@@ -1,13 +1,9 @@
-.pace .pace-progress {
-  background: #000;
-  position: fixed;
-  z-index: 2000;
-  top: 0;
-  left: 0;
-  height: 1px;
-  transition: width 1s;
-}
+/*pace*/
+.pace .pace-progress {background: #4285F4;position: fixed;z-index: 2000;top: 0;left: 0;height: 2px;transition: width 1s;}
+.pace-inactive {display: none;}
+.pace-done {background-color: #F8F9FA;}
 
-.pace-inactive {
-  display: none;
-}
+/*headroom*/
+.headroom { transition: transform 200ms linear; }
+.headroom--pinned { transform: translateY(0%); }
+.headroom--unpinned { transform: translateY(-100%); }
