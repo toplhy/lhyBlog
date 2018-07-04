@@ -8,7 +8,7 @@ class IndexView(ListView):
     model = Article
     template_name = 'blog/index.html'
     context_object_name = 'articles'
-    paginate_by = 5
+    paginate_by = 2
 
     def get_queryset(self):
         return super(IndexView, self).get_queryset().filter(status=2)
@@ -64,6 +64,7 @@ class ArchivesListView(ListView):
     model = Article
     template_name = 'blog/archives.html'
     context_object_name = 'articles'
+    paginate_by = 20
 
     def get_queryset(self):
         return super(ArchivesListView, self).get_queryset().filter(status=2).order_by('-date_created')

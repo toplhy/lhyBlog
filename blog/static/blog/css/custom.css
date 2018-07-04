@@ -69,6 +69,8 @@ p {
     word-spacing: 1px;
     letter-spacing: 0.01em;
     font-size: 16px;
+    word-break: break-all;
+    white-space: normal;
 }
 
 #single p,
@@ -223,6 +225,7 @@ img {
     margin-top: 120px;
 }
 .col-md-4, .col-md-8, .col-md-12{
+    /*background-color: #FFF;*/
     padding-left: 1px;
     padding-right: 1px;
 }
@@ -262,6 +265,8 @@ img {
     line-height: 1.9;
     font-weight: 300;
     color: #000;
+    word-break: break-all;
+    white-space: normal;
 }
 
 .post-category::after,
@@ -293,14 +298,20 @@ img {
 
 .archives-body ul .article-li {
     font-size: 1.6rem;
-    margin-top: 10px;
-    margin-left: 15px;
+    margin: 10px 0 10px 20px;
+}
+
+.archives-body ul .article-li::before {
+    content: '- ';
 }
 
 .archives-body ul .article-li span {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
+.archives-body ul .article-li a {
+
+}
 
 /**
  * 4.1 - Read More Button CSS 3 style
@@ -309,6 +320,7 @@ img {
 .read-more {
     font-family: 'Ubuntu', sans-serif;
     font-weight: 400;
+    font-size: 14px;
     word-spacing: 1px;
     letter-spacing: 0.01em;
     text-align: right;
@@ -1007,6 +1019,10 @@ img {
 /**
  * 13.0 - Pagination
  */
+.pagination-div {
+    background-color: #FFF;
+}
+
 .pagination {
     margin-top: 30px;
     font-size: 16px;

@@ -10,11 +10,31 @@
         <ul>
             {% for year in yearList %}
                 <li class="year-li">{{ year.grouper }}</li>
-                {% for article in articles %}
-                    <li class="article-li"><span>{{ article.date_created.month }}-{{ article.date_created.day }}</span>&emsp; {{ article.title }}</li>
+                {% for article in year.list %}
+                    <li class="article-li">
+                        <span>{{ article.date_created|date:"m-d" }}</span>&emsp;
+                        <a href="{{ article.get_detail_url }}">{{ article.title }}</a>
+                    </li>
                 {% endfor %}
             {% endfor %}
         </ul>
     </div>
+    {% if is_paginated %}
+        <div class="pagination-div">
+            <div class="pagination">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">上一页</a>
+                {% else%}
+                    <a class="disActive" href="javascript:void(0);">上一页</a>
+                {% endif %}
+                <span>第 {{ page_obj.number }} 页 / 共 {{ paginator.num_pages }} 页</span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">下一页</a>
+                {% else%}
+                    <a class="disActive" href="javascript:void(0);">下一页</a>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
 
 {% endblock %}
