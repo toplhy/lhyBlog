@@ -25,7 +25,7 @@ SECRET_KEY = 'b(mr-2!s@fft^#uf0%mk^#p9kfx2n9*(hl88lmdz8=nr8nvzin'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lianghy.imwork.net', '127.0.0.1']
 
 
 # Application definition

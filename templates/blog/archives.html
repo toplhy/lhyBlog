@@ -1,4 +1,20 @@
 {% extends 'base.html' %}
 
 {% block main %}
+    <div class="main-title">
+        <span>归档</span>
+        <span>RSS订阅</span>
+    </div>
+    <div class="archives-body">
+        {% regroup articles by date_created.year as yearList %}
+        <ul>
+            {% for year in yearList %}
+                <li class="year-li">{{ year.grouper }}</li>
+                {% for article in articles %}
+                    <li class="article-li"><span>{{ article.date_created.month }}-{{ article.date_created.day }}</span>&emsp; {{ article.title }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+
 {% endblock %}

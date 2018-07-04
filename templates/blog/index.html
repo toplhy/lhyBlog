@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
 {% block main %}
+    <div class="main-title">
+        <span>文章{% if mainTitleName %}-{{ mainTitleName }}{% endif %}</span>
+        <span>RSS订阅</span>
+    </div>
     {% for article in articles %}
         <article class="post post-{{ article.pk }}">
             <header class="entry-header">

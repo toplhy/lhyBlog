@@ -17,8 +17,8 @@ def archives(num=5):
 
 
 @register.simple_tag()
-def get_categories(num=5):
-    return Category.objects.annotate(article_num=Count('article')).filter(article__status=2)[:num]
+def get_categories():
+    return Category.objects.annotate(article_num=Count('article')).filter(article__status=2)
 
 
 @register.simple_tag()
@@ -34,3 +34,8 @@ def count_articles():
 @register.simple_tag()
 def get_tags():
     return Tag.objects.annotate(article_num=Count('article')).filter(article_num__gt=0)
+
+
+@register.simple_tag()
+def count_tags():
+    return Tag.objects.annotate(article_num=Count('article')).filter(article_num__gt=0).count()

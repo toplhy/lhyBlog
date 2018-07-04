@@ -68,6 +68,7 @@ p {
     font-weight: 400;
     word-spacing: 1px;
     letter-spacing: 0.01em;
+    font-size: 16px;
 }
 
 #single p,
@@ -103,6 +104,7 @@ img {
  * 3.0 - Site Header
  */
 .main-header {
+    border-bottom: 1px solid #eee;
     background-color: #FFF;
     position: fixed;
     top: 0;
@@ -220,6 +222,22 @@ img {
     padding-bottom: 1em;
     margin-top: 120px;
 }
+.col-md-4, .col-md-8, .col-md-12{
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+.main-title {
+    background: #fff;
+    padding: 20px 20px;
+    border-bottom: 1px solid #e7e7e7;
+    font-size: 1.9em;
+}
+
+.main-title span:nth-child(2) {
+    color: #fc6423;
+    float: right;
+}
 
 .post {
     background: #fff;
@@ -228,7 +246,7 @@ img {
 }
 
 .entry-title {
-    font-size: 1.9em;
+    font-size: 1.7em;
     margin-bottom: 10px;
     line-height: 1.6;
 }
@@ -253,6 +271,36 @@ img {
     content: ' ·';
     color: #000;
 }
+
+.archives-body {
+    background-color: #FFF;
+}
+
+.archives-body ul {
+    list-style-type: none;
+    padding: 10px 20px;
+}
+
+.archives-body ul .year-li {
+    font-size: 1.9rem;
+}
+
+.archives-body ul .article-li {
+    font-size: 1.6rem;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.archives-body ul .article-li {
+    font-size: 1.6rem;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.archives-body ul .article-li span {
+    font-size: 1.4rem;
+}
+
 
 /**
  * 4.1 - Read More Button CSS 3 style
@@ -342,6 +390,7 @@ img {
 
 .widget {
     background: #fff;
+    border-bottom: 1px solid #eee;
 }
 
 .widget-profile {
@@ -375,6 +424,8 @@ img {
 }
 
 .widget-count {
+    width: 80%;
+    margin: 20px auto 0;
     display: -webkit-box;
     display: -moz-box;
     display: box;
@@ -475,15 +526,6 @@ img {
     color: #000;
 }
 
-.widget-tag-cloud ul li::before {
-    content: '';
-    font-family: "Ionicons";
-    left: -25px;
-    top: 1px;
-    font-size: 15px;
-    color: #000;
-}
-
 .widget-content ul ul {
     margin-top: 10px;
 }
@@ -506,14 +548,15 @@ img {
  */
 
 #site-footer {
-    padding-top: 10px;
+    border-top: 1px solid #eee;
+    background-color: #FFF;
 }
 
 .copyright {
     text-align: center;
     padding-top: 1em;
+    padding-bottom: 1em;
     margin: 0;
-    border-top: 1px solid #eee;
     color: #666;
 }
 
@@ -917,6 +960,7 @@ img {
  * 12.0 - Comment
  */
 .comment-area {
+    background-color: #FFF;
     padding: 30px 30px 0;
 }
 
