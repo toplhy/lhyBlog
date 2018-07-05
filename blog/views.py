@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.views import View
 from django.views.generic import ListView, DetailView
 
+from blog.forms import CommentForm
 from blog.models import Article, Category, Tag
 
 
@@ -8,7 +10,7 @@ class IndexView(ListView):
     model = Article
     template_name = 'blog/index.html'
     context_object_name = 'articles'
-    paginate_by = 2
+    paginate_by = 5
 
     def get_queryset(self):
         return super(IndexView, self).get_queryset().filter(status=2)
@@ -24,6 +26,16 @@ class ArticleDetailView(DetailView):
         response = super(ArticleDetailView, self).get(request, *args, **kwargs)
         self.object.increase_count()
         return response
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticleDetailView, self).get_context_data(**kwargs)
+        form = CommentForm()
+        comments = self.object.comment_set.all()
+        context.update({
+            'form': form,
+            'comments': comments
+        })
+        return context
 
 
 class CategoryListView(ListView):
@@ -68,3 +80,24 @@ class ArchivesListView(ListView):
 
     def get_queryset(self):
         return super(ArchivesListView, self).get_queryset().filter(status=2).order_by('-date_created')
+
+
+class CommentAddView(View):
+    def post(self, request, article_pk):
+        article = get_object_or_404(Article, pk=article_pk)
+        if request.method == 'POST':
+            form = CommentForm(request.POST)
+            if form.is_valid():
+                comment = form.save(commit=False)
+                comment.article = article
+                comment.save()
+                return redirect('blog:detail', article.pk)
+            else:
+                comments = article.comment_set.all()
+                context = {
+                    'article': article,
+                    'form': form,
+                    'comments': comments,
+                }
+                return render(request, 'blog/detail.html', context=context)
+        return redirect('blog:detail', article.pk)

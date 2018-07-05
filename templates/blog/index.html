@@ -3,7 +3,7 @@
 {% block main %}
     <div class="main-title">
         <span>文章{% if mainTitleName %}-{{ mainTitleName }}{% endif %}</span>
-        <span>RSS订阅</span>
+        <span><a href="{% url 'blog:rss' %}" target="_blank">RSS订阅</a></span>
     </div>
     {% for article in articles %}
         <article class="post post-{{ article.pk }}">

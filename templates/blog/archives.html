@@ -3,7 +3,7 @@
 {% block main %}
     <div class="main-title">
         <span>归档</span>
-        <span>RSS订阅</span>
+        <span><a href="{% url 'blog:rss' %}" target="_blank">RSS订阅</a></span>
     </div>
     <div class="archives-body">
         {% regroup articles by date_created.year as yearList %}
@@ -12,6 +12,7 @@
                 <li class="year-li">{{ year.grouper }}</li>
                 {% for article in year.list %}
                     <li class="article-li">
+                        <span class="icon ion-ios-arrow-right ft16"></span>
                         <span>{{ article.date_created|date:"m-d" }}</span>&emsp;
                         <a href="{{ article.get_detail_url }}">{{ article.title }}</a>
                     </li>
