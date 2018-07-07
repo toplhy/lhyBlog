@@ -339,6 +339,12 @@ img {
     color: #777;
 }
 
+.no-article {
+    background-color: #FFF;
+    text-align: center;
+    padding: 20px 0;
+}
+
 
 .article-category::after,
 .article-date::after,

@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}, name='media'),
     url(r'', include('blog.urls')),
     url(r'', include('contact.urls')),
+    url(r'^search/', include('haystack.urls')),
 ]
