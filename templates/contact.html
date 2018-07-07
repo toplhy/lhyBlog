@@ -8,17 +8,13 @@
                 {% csrf_token %}
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <input type="text" name="name" placeholder="你的姓名" required >
-                        {{ form.name }}
+                        <input type="text" name="name" placeholder="你的姓名" value="{{ data.name }}">
                         {{ form.name.errors }}
-                        <input type="email" name="email" placeholder="你的邮箱" required>
-                        {{ form.email }}
+                        <input type="text" name="email" placeholder="你的邮箱" value="{{ data.email }}">
                         {{ form.email.errors }}
-                        <input type="text" name="subject" placeholder="主题" required>
-                        {{ form.subject }}
+                        <input type="text" name="subject" placeholder="主题" value="{{ data.subject }}">
                         {{ form.subject.errors }}
-                        <textarea name="content" rows="7" placeholder="正文" required></textarea>
-                        {{ form.content }}
+                        <textarea name="content" rows="7" placeholder="正文">{{ data.content }}</textarea>
                         {{ form.content.errors }}
                         <button class="btn-send btn-5 btn-5b "><span>确定</span></button>
                     </div>

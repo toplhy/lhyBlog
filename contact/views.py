@@ -16,8 +16,15 @@ class ContactAddView(View):
                 contact = form.save()
                 return redirect('contact:index')
             else:
+                data = {
+                    'name': request.POST['name'],
+                    'email': request.POST['email'],
+                    'subject': request.POST['subject'],
+                    'content': request.POST['content'],
+                }
                 context = {
-                    'form': form
+                    'form': form,
+                    'data': data,
                 }
                 return render(request, 'contact.html', context=context)
         return redirect('contact:index')
