@@ -12,7 +12,7 @@
                 <li class="year-li">{{ year.grouper }}</li>
                 {% for article in year.list %}
                     <li class="article-li">
-                        <span class="icon ion-ios-arrow-right ft16"></span>
+                        <i class="icon ion-ios-arrow-right ft16"></i>
                         <span>{{ article.date_created|date:"m-d" }}</span>&emsp;
                         <a href="{{ article.get_detail_url }}">{{ article.title }}</a>
                     </li>

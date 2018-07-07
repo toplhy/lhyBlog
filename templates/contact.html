@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h1 class="page-title">联系我</h1>
+    <article class="post">
+        <div class="entry-content clearfix">
+            <form action="{% url 'contact:add_contact' %}" method="post" class="contact-form">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <input type="text" name="name" placeholder="你的姓名" required >
+                        {{ form.name }}
+                        {{ form.name.errors }}
+                        <input type="email" name="email" placeholder="你的邮箱" required>
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                        <input type="text" name="subject" placeholder="主题" required>
+                        {{ form.subject }}
+                        {{ form.subject.errors }}
+                        <textarea name="content" rows="7" placeholder="正文" required></textarea>
+                        {{ form.content }}
+                        {{ form.content.errors }}
+                        <button class="btn-send btn-5 btn-5b "><span>确定</span></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </article>
+{% endblock %}

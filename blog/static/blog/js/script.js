@@ -150,7 +150,26 @@ if ( typeof define === 'function' && define.amd ) {
 
     triggerBttn.addEventListener( 'click', toggleOverlay );
     closeBttn.addEventListener( 'click', toggleOverlay );
+
     var headerElement = document.getElementById('main-header');
     var headroom  = new Headroom(headerElement);
     headroom.init();
+
+    $(".widget-category ul li, .widget-tag-cloud ul li").on('mouseover', function () {
+        $(this).css("border","1px solid #EE9B00");
+    });
+
+    $(".widget-category ul li, .widget-tag-cloud ul li").on('mouseout', function () {
+        $(this).css("border","1px solid #ddd");
+    });
+
+    $(".archives-body ul li, .widget-recent-posts ul li").on('mouseover', function () {
+        $(this).find("i").removeClass("ion-ios-arrow-right").addClass("ion-arrow-right-c");
+        $(this).find("i").css("color", "#EE9B00");
+    });
+
+    $(".archives-body ul li, .widget-recent-posts ul li").on('mouseout', function () {
+        $(this).find("i").removeClass("ion-arrow-right-c").addClass("ion-ios-arrow-right");
+        $(this).find("i").css("color", "#000");
+    });
 })();

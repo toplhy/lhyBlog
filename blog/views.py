@@ -1,6 +1,9 @@
+import markdown
 from django.shortcuts import render, get_object_or_404, redirect
+from django.utils.text import slugify
 from django.views import View
 from django.views.generic import ListView, DetailView
+from markdown.extensions.toc import TocExtension
 
 from blog.forms import CommentForm
 from blog.models import Article, Category, Tag
@@ -26,6 +29,15 @@ class ArticleDetailView(DetailView):
         response = super(ArticleDetailView, self).get(request, *args, **kwargs)
         self.object.increase_count()
         return response
+
+    def get_object(self, queryset=None):
+        article = super(ArticleDetailView, self).get_object(queryset=None)
+        md = markdown.Markdown(extensions=['markdown.extensions.extra',
+                                           'markdown.extensions.codehilite',
+                                           TocExtension(slugify=slugify)])
+        article.content = md.convert(article.content)
+        article.toc = md.toc
+        return article
 
     def get_context_data(self, **kwargs):
         context = super(ArticleDetailView, self).get_context_data(**kwargs)
