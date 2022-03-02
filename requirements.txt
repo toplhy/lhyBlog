@@ -48,7 +48,7 @@ pywin32==221
 queuelib==1.4.2
 regex==2018.6.21
 requests==2.18.4
-Scrapy==1.4.0
+Scrapy==1.8.2
 service-identity==17.0.0
 six==1.11.0
 sshtunnel==0.1.4
